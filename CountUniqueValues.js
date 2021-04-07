@@ -3,7 +3,7 @@
 // Implement a function countUniqueValues which accepts a SORTED array, and counts the unique values in the array.
 // There can be negative numbers, but it will always be sorted.
 
-// My own Naive solution...
+// My own Naive looping solution... still O(N)
 function countUniqueValues(array) {
   let newArray = [];
 
@@ -19,7 +19,7 @@ function countUniqueValues(array) {
 console.log(countUniqueValues([1, 1, 1, 2, 3, 4, 4, 5]));
 console.log(countUniqueValues([]));
 
-// USING TWO POINTERS SOLUTION
+// USING TWO POINTERS SOLUTION O(N)
 function countUniqueValuesBetter(array) {
   if (array.length === 0) {
     return 0;
