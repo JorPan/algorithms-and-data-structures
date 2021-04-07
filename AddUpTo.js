@@ -1,8 +1,3 @@
-// THIS IS MY WORKSPACE FOR AN ALGORITHM AND DATA STRUCTURES COURSE ON UDEMY //
-
-// BIG O
-//relation of input to runtime
-
 // Add Up to Num N
 //LOOPING METHOD = O(n)
 function addUpTo(n) {
@@ -18,5 +13,5 @@ function addUpToNum(n) {
   return (n * (n + 1)) / 2;
 }
 
-console.log(addUpTo(6));
-console.log(addUpToNum(6));
+// console.log(addUpTo(6));
+// console.log(addUpToNum(6));
