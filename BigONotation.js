@@ -1,5 +1,3 @@
-// THIS IS MY WORKSPACE FOR AN ALGORITHM AND DATA STRUCTURES COURSE ON UDEMY //
-
 // BIG O
 //relation of input to runtime based on time and size of memory needed.
 
