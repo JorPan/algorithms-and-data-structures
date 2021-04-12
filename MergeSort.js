@@ -1,5 +1,7 @@
 // MERGE SORT
 
+// BIG O OF O(N log N)
+
 // STEP ONE
 // MERGE two SORTED arrays so that they return one SORTED array.
 
