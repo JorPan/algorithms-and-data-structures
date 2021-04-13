@@ -17,4 +17,4 @@ function recursiveFactorial(num) {
   return num * recursiveFactorial(num - 1);
 }
 
-console.log(recursiveFactorial(5));
+console.log(recursiveFactorial(6));
