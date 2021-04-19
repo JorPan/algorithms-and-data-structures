@@ -48,6 +48,17 @@ class Node {
 // if the node is not found, return false
 // if the node is found, set the value and return true
 
+// INSERT pseudocode
+// define an insert function that accepts an index and a value
+//  if the index is less than zero or greater than the length, return false
+// if index is the same as the length, push new node to the end of the list
+// if index is 0, unshift a new node to start of list
+//  otherwise, use the get method, access the node at provided index - 1
+// set the next property on that node to be the new node
+// set the next property of the new node to the old next node
+// incrememnt the length
+// return true
+
 class SinglyLinkedList {
   constructor() {
     this.head = null;
@@ -130,15 +141,27 @@ class SinglyLinkedList {
     }
     return false;
   }
+
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(val);
+    if (index === 0) return !!this.unshift(val);
+    let newNode = new Node(val);
+    let previous = this.get(index - 1);
+    let temp = previous.next;
+    previous.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
+  }
 }
 
 let list = new SinglyLinkedList();
 list.push("Hi");
-list.push("there!");
+// list.push("there!");
 list.push("How");
 list.push("are");
 list.push("you?!");
 list.push("<3");
-// list.pop();
 
-console.log(list.set(0, "WTF???? IS UP DENNYS???"), list);
+console.log(list.insert(1, "there"), list);
