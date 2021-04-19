@@ -59,6 +59,15 @@ class Node {
 // incrememnt the length
 // return true
 
+// REMOVE pseudocode
+// define a remove function that accepts an index and removes the element at that index
+// if index is less than zero or greater than or equal to the length, return undefined
+// if index is the same as length - 1 use pop, if index is 0 use shift method
+// otherwise, using the get method access node at index - 1
+// set the next property of that node to be the next of the NEXT node
+// decrement the value
+// return the value of the node removed
+
 class SinglyLinkedList {
   constructor() {
     this.head = null;
@@ -146,6 +155,7 @@ class SinglyLinkedList {
     if (index < 0 || index > this.length) return false;
     if (index === this.length) return !!this.push(val);
     if (index === 0) return !!this.unshift(val);
+
     let newNode = new Node(val);
     let previous = this.get(index - 1);
     let temp = previous.next;
@@ -154,14 +164,25 @@ class SinglyLinkedList {
     this.length++;
     return true;
   }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+    let previousNode = this.get(index - 1);
+    let removed = previousNode.next;
+    previousNode.next = removed.next;
+    this.length--;
+    return removed;
+  }
 }
 
 let list = new SinglyLinkedList();
 list.push("Hi");
-// list.push("there!");
+list.push("there!");
 list.push("How");
 list.push("are");
 list.push("you?!");
 list.push("<3");
 
-console.log(list.insert(1, "there"), list);
+console.log(list.remove(0), list);
