@@ -5,13 +5,21 @@ class Node {
   }
 }
 
-//push pseudocode
+// PUSH pseudocode
 // function should accept a value
 // create a new node using the value passed to the function
 // if there is no head property on the list set the head and tail to be the newly created node
 // otherwise set the next property on the tail to be the new node, and set the tail property on the list to be the newly created node
 // increment length by 1
 // return the linked list
+
+// POP pseudocode
+// define a pop function that takes no argumants
+// if there are no nodes in the list return undefined
+// loop through entire list until you reach the tail
+// set next property of 2nd to last node in the list to null
+// decrement the length by 1
+// return the value of the node removed
 
 class SinglyLinkedList {
   constructor() {
@@ -31,11 +39,29 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+  pop() {
+    if (!this.head) return undefined;
+    let current = this.head;
+    let newTail = current;
+    while (current.next) {
+      newTail = current;
+      current = current.next;
+    }
+    this.tail = newTail;
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return current;
+  }
 }
 
 let list = new SinglyLinkedList();
 list.push("Hi!");
 list.push("you!!");
 list.push(99);
+list.pop();
 
 console.log(list);
