@@ -42,9 +42,11 @@ class Node {
 //  if the index is less than zero or the index is greated than or equal to length of list, return null
 //  loop through the list until we reach the index and return the node at that specific index
 
-//
-//
-//
+// SET pseudocode
+//  define a set function that accepts an index, and a value to update that index to
+// use the get function to find the specific node
+// if the node is not found, return false
+// if the node is found, set the value and return true
 
 class SinglyLinkedList {
   constructor() {
@@ -119,6 +121,15 @@ class SinglyLinkedList {
     }
     return current;
   }
+
+  set(index, val) {
+    let foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
 }
 
 let list = new SinglyLinkedList();
@@ -130,4 +141,4 @@ list.push("you?!");
 list.push("<3");
 // list.pop();
 
-console.log(list.get(0));
+console.log(list.set(0, "WTF???? IS UP DENNYS???"), list);
