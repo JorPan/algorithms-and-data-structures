@@ -1,10 +1,3 @@
-class Node {
-  constructor(val) {
-    this.val = val;
-    this.next = null;
-  }
-}
-
 // PUSH pseudocode
 // define a push function that should accept a value
 // create a new node using the value passed to the function
@@ -67,6 +60,25 @@ class Node {
 // set the next property of that node to be the next of the NEXT node
 // decrement the value
 // return the value of the node removed
+
+// REVERSE pseudocode
+// define a reverse function that accepts no arguments
+// swap the head and tail
+// create a variable called next, and another called previous
+// create another variable for currentNode and initialize it to the head property
+// loop through the list
+// set next to be the next property on whatever node is
+// set the next property on the node to be whatever previous is
+// set prev to be the value of the node variable
+// set the node variable to be the value of the next variable.
+// return the full list now reversed...
+
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
 
 class SinglyLinkedList {
   constructor() {
@@ -175,6 +187,21 @@ class SinglyLinkedList {
     this.length--;
     return removed;
   }
+
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    let next;
+    let previous = null;
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = previous;
+      previous = node;
+      node = next;
+    }
+    return this;
+  }
 }
 
 let list = new SinglyLinkedList();
@@ -185,4 +212,4 @@ list.push("are");
 list.push("you?!");
 list.push("<3");
 
-console.log(list.remove(0), list);
+console.log(list.reverse());
