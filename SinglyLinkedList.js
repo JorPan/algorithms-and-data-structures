@@ -37,6 +37,15 @@ class Node {
 // increment length of list by 1
 // return full list
 
+// GET pseudocode
+// define a get function that accepts an index
+//  if the index is less than zero or the index is greated than or equal to length of list, return null
+//  loop through the list until we reach the index and return the node at that specific index
+
+//
+//
+//
+
 class SinglyLinkedList {
   constructor() {
     this.head = null;
@@ -99,12 +108,26 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+    return current;
+  }
 }
 
 let list = new SinglyLinkedList();
-list.push("Hi!");
-list.push("you!!");
-list.push(99);
-list.pop();
+list.push("Hi");
+list.push("there!");
+list.push("How");
+list.push("are");
+list.push("you?!");
+list.push("<3");
+// list.pop();
 
-console.log(list.unshift("FIRST"));
+console.log(list.get(0));
