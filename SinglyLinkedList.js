@@ -29,6 +29,14 @@ class Node {
 // decrement length of list by 1
 //  return the variable for the node removed.
 
+// UNSHIFT pseudocode
+// define an unshift function that takes one argument
+// create a new node using the value
+// if there is no head, set the new head and tail
+// otherwise set the newly created nodes next propert to the current head property
+// increment length of list by 1
+// return full list
+
 class SinglyLinkedList {
   constructor() {
     this.head = null;
@@ -77,12 +85,26 @@ class SinglyLinkedList {
     }
     return currentHead;
   }
+
+  unshift(val) {
+    let newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.length++;
+    return this;
+  }
 }
 
 let list = new SinglyLinkedList();
 list.push("Hi!");
 list.push("you!!");
 list.push(99);
-// list.pop();
+list.pop();
 
-console.log(list.shift(), list.shift(), list.shift(), list);
+console.log(list.unshift("FIRST"));
