@@ -14,4 +14,4 @@ function movieLengths(array, flightTime) {
   return false;
 }
 
-console.log(movieLengths([90, 60, 40], 120));
+console.log(movieLengths([90, 60, 30], 120));
