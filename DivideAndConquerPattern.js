@@ -13,7 +13,7 @@ function search(array, value) {
   return -1;
 }
 
-// better approach - binary search -
+// better approach - binary search - O(log N)
 
 function binarySearch(array, value) {
   let min = 0;
