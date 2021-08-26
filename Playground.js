@@ -1,3 +1,5 @@
+// 90, 60, 30
+
 function movieLengths(array, flightTime) {
   let count = {};
 
@@ -8,7 +10,9 @@ function movieLengths(array, flightTime) {
       return true;
     }
 
-    count[array[i]] = i;
+    count[array[i]]
+      ? (count[array[i]] = count[array[i]] + 1)
+      : (count[array[i]] = 1);
   }
 
   return false;
